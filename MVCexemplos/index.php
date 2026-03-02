@@ -27,6 +27,10 @@ switch ($route){
             $usuarioController->telaEditar();
             break;
 
+        case "usuario/excluir":
+            $usuarioController->excluir();
+            break;
+
         default:
             echo "Página não encontrada";
             break;
