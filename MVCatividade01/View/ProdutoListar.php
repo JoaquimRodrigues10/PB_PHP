@@ -16,13 +16,19 @@
             <th>Validade</th>
             <th>Ações</th>
 </tr>
-<?php foreach($produtos as $p): ?>
+<?php foreach($produtos as $id => $p): ?>
     <tr>
         <td><?= $p['nome']?></td>
         <td><?= $p['preco']?></td>
         <td><?= $p['quantidade']?></td>
         <td><?= $p['validade']?></td>
-        <td>próximo produto</td>
+        <td>
+            <a href="/PB_PHP/MVCatividade01/produto/telaEditar?id=<?= $id ?>">
+                Editar
+            </a>
+            <a href="/PB_PHP/MVCatividade01/produto/excluir?id=<?= $id ?>">
+                Excluir
+        </td>
 </tr>
 <?php endforeach; ?>
 

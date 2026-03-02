@@ -30,4 +30,27 @@ class Produto{
     public static function listar(){
         return $_SESSION['produtos']?? [];
     }
+    public static function buscar($id){
+        return $_SESSION['produtos'][$id] ?? null;
+    }
+
+    public function atualizar($id){
+        if(isset($_SESSION['produtos'][$id])){
+            $_SESSION['produtos'][$id] = [
+                'nome' => $this->nome,
+                'preco' => $this->preco,
+                'quantidade' => $this->quantidade,
+                'validade' => $this->validade
+            ];
+        }
+    }
+
+
+    public static function excluir($id){
+        if(isset($_SESSION['produtos'][$id])){
+            unset($_SESSION['produtos'][$id]);
+        }
+    }
+
+
 }

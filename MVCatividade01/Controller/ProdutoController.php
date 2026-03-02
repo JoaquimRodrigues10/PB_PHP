@@ -30,4 +30,24 @@ class ProdutoController{
 
     }
 
+     public function telaEditar(){
+        $produto = Produto::buscar($_GET['id']);
+        require 'View/produtoEditar.php';
+    }
+
+    public function atualizar(){
+        $produto = new Produto($_POST['nome'],$_POST['preco'],$_POST['quantidade'],$_POST['validade'],);
+        $produto->atualizar($_GET['id']);
+        header('Location: /PB_PHP/MVCatividade01/produto/telaEditar?id='.($_GET['id']));
+        exit;
+
+    }
+
+    public function excluir(){
+        Produto::excluir($_GET['id']);
+        header('Location: /PB_PHP/MVCatividade01/produto/listar');
+        exit;
+    }
+
+
 }
